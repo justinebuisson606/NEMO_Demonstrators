@@ -1,0 +1,72 @@
+site_name: NEMO Demonstrators
+site_description: Demonstrators and recipes for NEMO ocean model experiments
+site_url: https://justinebuisson606.github.io/NEMO_Demonstrators/
+repo_url: https://github.com/justinebuisson606/NEMO_Demonstrators
+repo_name: NEMO_Demonstrators
+edit_uri: edit/main/docs/
+
+theme:
+  name: material
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - content.code.copy
+    - content.action.edit
+    - search.suggest
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      toggle: {icon: material/weather-night, name: Dark mode}
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      toggle: {icon: material/weather-sunny, name: Light mode}
+
+nav:
+  - Getting started: index.md
+  - User Guide:
+      - Overview: user_guide/index.md
+      - Experiments: user_guide/experiments.md
+  - Run it yourself: run_yourself.md
+  - Demonstrators:
+      - Summary: demonstrators.md
+      - Demonstrator 1: notebooks/demonstrator_1.ipynb
+      - Demonstrator 1 (gauss): notebooks/demonstator_1-gauss.ipynb
+      - Demonstrator 2: notebooks/demonstrator_2.ipynb
+      - Demonstrator 3: notebooks/demonstrator_3.ipynb
+      - Demonstrator 4: notebooks/demonstrator_4.ipynb
+  - Annexes:
+      - Annex 1: notebooks/annex_1.ipynb
+      - Annex 3-A: notebooks/annex_3-a.ipynb
+      - Annex 3-B: notebooks/annex_3-b.ipynb
+      - Convergence: notebooks/convergence_sibylle.ipynb
+  - Recipes:
+      - Summary: recipes/index.md
+      - Numerical dispersion (theory): recipes/dispersion_theory.md
+      - Dispersion curves (notebook): extra/dispersion_curves.ipynb
+      - Advection of a salt block: recipes/salt_block.md
+  - Contributing: contributing.md
+
+plugins:
+  - search
+  - mkdocs-jupyter:
+      execute: false
+      include_source: true
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.tabbed:
+      alternate_style: true
+  - tables
+  - toc:
+      permalink: true
+
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
