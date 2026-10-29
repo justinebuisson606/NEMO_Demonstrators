@@ -3,8 +3,8 @@
 Each demonstrator is a notebook, with the NEMO configuration used to run it.
 The pages show saved outputs; to run the simulations, see [Run it yourself](run_yourself.md).
 
-| Notebook | NEMO configuration |
-|---|---|
+| Notebook | | NEMO configuration |
+|---|---|---|
 | [Demonstrator 1](notebooks/demonstrator_1.ipynb)  | The aim of this tutorial is to give the readers an opportunity to run the salt block simulation using the different advection schemes. Here we choose to use the transport of a block of salt to demonstrate how the diffusive and dispersive properties of the advection scheme impact the outcome of a simulation. | [demo1_cfg](https://github.com/justinebuisson606/NEMO_Demonstrators/raw/main/demo1_cfg) |
 | [Demonstrator 1 (gauss)](notebooks/demonstator_1-gauss.ipynb) | The aim of this tutorial is to further dive into the dispersive and diffusive properties of the tracer advection schemes. Here we choose to transport sinusoidal signals at different frequencies to compare the performances of the different schemes based on the spatial resolution of the signal. | [demo2_cfg](https://github.com/justinebuisson606/NEMO_Demonstrators/raw/main/demo_gauss) |
 | [Demonstrator 2](notebooks/demonstrator_2.ipynb) | Here we choose to demonstrate how the diffusive and dispersive properties of the advection scheme impact the outcome of a simulation in the case of the formation of eddies. | [demo3_cfg](https://github.com/justinebuisson606/NEMO_Demonstrators/raw/main/demo2_cfg) |
