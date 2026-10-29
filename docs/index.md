@@ -12,6 +12,7 @@ the analysis code needed to understand the result.
 
 - [User Guide](user_guide/index.md): experiment set-up and data layout.
 - [Demonstrators](demonstrators.md): the notebooks and their NEMO configurations.
+- [Methodology](methodology.md): notes and theoretical explanations on the notebooks.
 - [Contributing](contributing.md): add your own demonstrator.
 
 ## Installation
