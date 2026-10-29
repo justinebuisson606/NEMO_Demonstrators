@@ -36,14 +36,8 @@ nav:
       - Qualitative comparison of performances based on spatial resolution : notebooks/demonstator_1-gauss.ipynb
       - Diffusive and dispersive tracer advection schemes on eddies : notebooks/demonstrator_2.ipynb
       - Impact of explicit tracer diffusion schemes over a dispersive tracer advection scheme : notebooks/demonstrator_3.ipynb
-  - Annexes:
       - Annex 1: notebooks/annex_1.ipynb
       - Annex 3: notebooks/annex_3-a.ipynb
-  - Recipes:
-      - Summary: recipes/index.md
-      - Numerical dispersion (theory): recipes/dispersion_theory.md
-      - Dispersion curves (notebook): extra/dispersion_curves.ipynb
-      - Advection of a salt block: recipes/salt_block.md
   - Contributing: contributing.md
 
 plugins:
