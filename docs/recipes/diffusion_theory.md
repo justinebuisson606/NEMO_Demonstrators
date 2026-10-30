@@ -1,4 +1,4 @@
-# Dispersive scheme 
+# Diffusive scheme 
 
 ## Problem
 
