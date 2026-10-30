@@ -150,12 +150,14 @@ Averaging $R_m$ over all pairs of consecutive outputs, **weighted by the amplitu
 $|F_m(t)F_m(t+\Delta t_{out})|$, reduces the noise (modes with almost zero amplitude, such
 as the spectral zeros of a square block, have an unreliable phase).
  
-!!! warning "Phase aliasing"
-    $\arg R_m$ is only defined modulo $2\pi$. The measurement is valid if the phase
+**Warning "Phase aliasing" :**
+     $\arg R_m$ is only defined modulo $2\pi$. The measurement is valid if the phase
     rotation between two outputs is below $\pi$:
-    $k\,c_0\,\Delta t_{out} < \pi$, i.e. $\theta < \pi\Delta x/(c_0\Delta t_{out})$.
-    Removing the exact advection first, by multiplying $R_m$ by $e^{+ikc_0\Delta t_{out}}$,
-    relaxes this to $k\,|c_p - c_0|\,\Delta t_{out} < \pi$.
+
+$$
+k c_0 \Delta t_{out} < \pi \quad\Longrightarrow\quad \theta < \pi\Delta x/(c_0\Delta t_{out})
+$$
+
  
 
  
