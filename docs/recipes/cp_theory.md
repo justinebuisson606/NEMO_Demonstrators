@@ -1,4 +1,4 @@
-# Numerical dispersion: theory
+# Phase speed and dampening effect : theory
 
 ## Problem and strategy
  
