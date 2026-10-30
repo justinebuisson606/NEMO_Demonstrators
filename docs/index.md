@@ -10,7 +10,7 @@ the analysis code needed to understand the result.
 
 ## Where to start
 
-- [User Guide](user_guide/index.md): experiment set-up and data layout.
+- [Run it yourself](urun_yourself.md): help on how and where to run the simulations and their analysis.
 - [Demonstrators](demonstrators.md): the notebooks and their NEMO configurations.
 - [Methodology](recipes.md): notes and theoretical explanations on the notebooks.
 - [Contributing](contributing.md): add your own demonstrator.
