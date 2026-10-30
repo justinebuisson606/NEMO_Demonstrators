@@ -1,7 +1,8 @@
-# Recipes
+# Methodology
 
-| Recipe | Description |
-|---|---|
-| [Numerical dispersion (theory)](dispersion_theory.md) | Phase and group velocity of CEN2, CEN4, UBS |
-| [Dispersion curves (notebook)](../extra/dispersion_curves.ipynb) | Plot the theoretical curves |
-| [Advection of a salt block](salt_block.md) | Measure front speeds per salinity level |
+| Methods |
+|---|
+| [Configuration of the notebooks simulations](configuration.md) |
+| [Numerical dispersion (theory)](dispersion_theory.md) |
+| [Numerical diffusion (theory)](diffusion_theory.md) |
+| [Phase velocity and dampening curves of CEN2, CEN4, UBS (theory)](cp_theory.md) |
