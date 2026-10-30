@@ -2,7 +2,7 @@
 
 Each demonstrator is a notebook, with the NEMO configuration used to run it.
 The pages show saved outputs; to run the simulations, see [Run it yourself](run_yourself.md).
-All configuration parameters are gathered in the [configuration table](/recipes/configurations.md).
+All configuration parameters are gathered in the [configuration table](/recipes/configuration.md).
 
 | Notebook | | NEMO configuration file|
 |---|---|---|
