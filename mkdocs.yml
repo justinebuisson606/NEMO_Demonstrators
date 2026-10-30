@@ -26,9 +26,6 @@ theme:
 
 nav:
   - Getting started: index.md
-  - User Guide:
-      - Overview: user_guide/index.md
-      - Experiments: user_guide/experiments.md
   - Run it yourself: run_yourself.md
   - Demonstrators:
       - Summary: demonstrators.md
@@ -39,6 +36,10 @@ nav:
       - Annex 1: notebooks/annex_1.ipynb
       - Annex 3: notebooks/annex_3-a.ipynb
   - Methodology : recipes/index.md
+      - Configuration of the notebooks simulations : recipes/configuration.md
+      - Numerical dispersion (theory) : recipes/dispersion_theory.md
+      - Numerical diffusion (theory) : recipes/diffusion_theory.mc
+      - Phase velocity and dampening curves of CEN2, CEN4, UBS (theory): recipes/cp_theory.md
   - Contributing: contributing.md
 
 plugins:
