@@ -35,7 +35,8 @@ nav:
       - Impact of explicit tracer diffusion schemes over a dispersive tracer advection scheme : notebooks/demonstrator_3.ipynb
       - Annex 1: notebooks/annex_1.ipynb
       - Annex 3: notebooks/annex_3-a.ipynb
-  - Methodology : recipes/index.md
+  - Methodology : 
+      - Summary : recipes/index.md
       - Configuration of the notebooks simulations : recipes/configuration.md
       - Numerical dispersion (theory) : recipes/dispersion_theory.md
       - Numerical diffusion (theory) : recipes/diffusion_theory.mc
