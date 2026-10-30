@@ -20,7 +20,7 @@ $$
 so every wave travels at the same speed $c_p = \omega/k = c_0$: there is no dispersion.
 A numerical scheme changes the relation $\omega(k)$; this is what we compute below.
 
-## CEN2 : Expression of $c_p$
+## CEN2 : Expression of the phase speed
 
 The spatial discretisation of the transport equation is as follows :
 
@@ -43,7 +43,7 @@ $$
 Waves are always **slower** than $c_0$, the more so the shorter they are. At $\theta = \pi$,
 $c_p = 0$: the $2\Delta x$ wave does not move.
 
-## CEN4 : Expression of $c_p$
+## CEN4 : Expression of the phase speed
 
 The CEN4 scheme can be expressed as follows : $T_j^{cen4} = T_j^{cen2} - \frac{1}{6} \overline{ \delta_j \left[ \delta_{j+1/2}[T] \right]}^{j+1/2} $
 with $\overline{T}^{j+1/2} = (T_{j+1} + T_j)/2$
@@ -69,7 +69,7 @@ Which gives us     $c_p = \frac{\omega}{k} = c_0 (\frac{4}{3} \sin\theta/ - \fra
 Therefore $c_p/c_0 \approx 1 - \theta^4/30$: the phase error is of order 4
 instead of order 2 for CEN2.
 
-## UBS : Expression of $c_p$
+## UBS : Expression of the phase speed
 
 For $c_0>0$, the discrete spatial derivative uses one point downstream and two upstream :
 
@@ -112,20 +112,21 @@ UBS is CEN4 plus a fourth-order (bi-Laplacian-like) diffusion.
 
 For $C \ll 1$ the time error is far smaller than the spatial error ($\propto\theta^2$ or $\theta^4$). The time scheme matters when $C$ approaches 1. 
 
-$C = c_0\Delta t_{out}/\Delta x $
+$C = c_0\Delta t/\Delta x$
 
 For the simulations in the demonstrator :
+
 | Parameter | Value |
 |---|---|
 | $c_0$ | $0.5 m.s^{-1}$ |
-| $\Delta t_{out}$ | $3600 s$ |
-| $\Delta x$ | $10000 m$ |
-| $C$ | $0.18$ |
+| $\Delta t$ | $900 s$ |
+| $\Delta x_{min}$ | $5000 m$ |
+| $C$ | $0.09$ |
 
 
 In our case the "space only" curves of the sections above are a good reference for RK3 and MLF. 
 
-## Measuring $c_p$ from model output
+## Measuring the phase speed from model output
  
 For a linear scheme on a periodic domain, take the spatial Fourier transform of the field
 at each output time:
