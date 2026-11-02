@@ -41,7 +41,6 @@ nav:
       - Numerical dispersion (theory) : recipes/dispersion_theory.md
       - Numerical diffusion (theory) : recipes/diffusion_theory.md
       - Phase velocity and dampening curves of CEN2, CEN4, UBS (theory): recipes/cp_theory.md
-  - Contributing: contributing.md
 
 plugins:
   - search
