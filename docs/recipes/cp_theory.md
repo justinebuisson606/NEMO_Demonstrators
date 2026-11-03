@@ -45,7 +45,12 @@ $c_p = 0$: the $2\Delta x$ wave does not move.
 
 ## CEN4 : Expression of the phase speed
 
-The CEN4 scheme can be expressed as follows : $T_j^{cen4} = T_j^{cen2} - \frac{1}{6} \overline{ \delta_j \left[ \delta_{j+1/2}[T] \right]}^{j+1/2} $
+The CEN4 scheme can be expressed as follows : 
+
+$$
+T_j^{cen4} = T_j^{cen2} - \frac{1}{6} \overline{ \delta_j \left[ \delta_{j+1/2}[T] \right]}^{j+1/2}
+$$
+
 with $\overline{T}^{j+1/2} = (T_{j+1} + T_j)/2$
 and 
 $\delta_j[T] = (T_{j+1} - T_j)$
@@ -55,7 +60,7 @@ The spatial discretisation of the transport equation is as follows :
 $$
 \partial_x T \approx \frac{4}{3} \frac{T_{j+1} - T_{j-1}}{2\Delta x} - \frac{1}{6} \frac{T_{j+2} - T_{j-2}}{2\Delta x}
 = (\frac{4}{3}\frac{e^{i\theta} - e^{-i\theta }}{2\Delta x} -\frac{1}{6}\frac{e^{i2\theta} - e^{-i2\theta }}{\Delta x} ) T_j\
-= (\frac{4}{3} \frac{i \sin\theta}{\Delta x} -\frac{1}{6}\frac{i \sin2\theta}{\Delta x}) T_j$
+= (\frac{4}{3} \frac{i \sin\theta}{\Delta x} -\frac{1}{6}\frac{i \sin2\theta}{\Delta x}) T_j
 $$
 
 The time continuous part of the transport equation becomes :
@@ -93,9 +98,8 @@ And     $\omega_i = -\frac{c_0}{\Delta x}(1-\cos\theta)^2/3$
 **Interpretation.** The wave is $e^{\omega_i t}e^{i(kx - \omega_r t)}$:
  
 - the real part $\omega_r$ is the **same as CEN4**, so UBS has the same $c_p$ as CEN4;
-- the imaginary part $\omega_i = -c_0 D/\Delta x < 0$ is a **damping** that kills short waves
-  while leaving long waves almost untouched. For small $\theta$, $D \approx \theta^4/12$;
-  at $\theta=\pi/2$, $D = 1/3$; at $\theta = \pi$, $D = 4/3$.
+- the imaginary part $\omega_i < 0$ is a **damping** that kills short waves
+  while leaving long waves almost untouched. For small $\theta$, $\omega_i \propto \theta^4$.
 UBS is CEN4 plus a fourth-order (bi-Laplacian-like) diffusion.
 
 ## Summary
@@ -132,7 +136,7 @@ For a linear scheme on a periodic domain, take the spatial Fourier transform of 
 at each output time:
  
 $$
-F_m(t) = \sum_{j} T_j(t)\, e^{-i k_m x_j}, \qquad k_m = \frac{2\pi m}{N\Delta x}, \quad \theta_m = \frac{2\pi m}{N}.
+F_m(t) = \sum_{j} T_j(t)\ e^{-i k_m x_j} \qquad k_m = \frac{2\pi m}{N\Delta x} \quad \theta_m = \frac{2\pi m}{N}.
 $$
  
 (With `numpy.fft.rfft` the kernel is $e^{-ikx}$, so a wave $e^{i(kx-\omega t)}$ gives a
@@ -141,7 +145,7 @@ between two outputs separated by $\Delta t_{out}$:
  
 $$
 R_m = \frac{F_m(t + \Delta t_{out})}{F_m(t)} = e^{-i\omega\Delta t_{out}}
-\;\Longrightarrow\;
+\Longrightarrow\
 \omega_r = -\frac{\arg R_m}{\Delta t_{out}}, \quad
 \omega_i = \frac{\ln|R_m|}{\Delta t_{out}}, \quad
 c_p = \frac{\omega_r}{k_m}.
