@@ -15,7 +15,7 @@ $$
 \frac{\partial T}{\partial t}+c\frac{\partial T}{\partial x}=0
 $$
 
-The spatial discretisation of the transport equation is as follows :
+The UP1 spatial discretisation of the transport equation is as follows :
 
 $$
 \partial_x T_j \approx \frac{T_{j} - T_{j-1}}{\Delta x} 
@@ -38,10 +38,10 @@ The presence of the 2nd-order spatial derivative $\frac{\partial ^{2}T}{\partial
 
 ## Physical consequences of diffusion
 
-The consequence of the dispersion is that even-order derivative errors act like numerical viscosity.
+The consequence of the diffusion is that even-order derivative errors act like numerical viscosity.
 The viscosity dampens the signal, smoothes out the edges. When resolving sharp profiles (like a step function or square pulse) 
 a diffusive model will reduce the high magnitude gradients, turning a steep slop into a gentle slope, a step into a hill. 
 
-Intricate structures like eddies will become less structured at small scales.
+Intricate structures like eddies will become less structured at small scales as well.
 
 
