@@ -19,11 +19,14 @@ environment where you can run them.
 
 ## 1. Run locally (full workflow, including simulations)
 
+Compile a new CANAL test case and clone the repository inside the case
 ```bash
+#Compile a NEMO_Demonstrators CANAL configuration
+./makenemo -r CANAL -n NEMO_Demonstrators
+cd /tests/NEMO_Demonstrators/EXP00
+
 git clone https://github.com/justinebuisson606/NEMO_Demonstrators.git
 cd NEMO_Demonstrators
-# unzip the configuration for the demonstrator you want, e.g.
-unzip demo1_cfg.zip
 # then open the notebook, which calls the .sh scripts
 jupyter lab "Demonstrator 1.ipynb"
 ```
