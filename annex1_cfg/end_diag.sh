@@ -106,7 +106,7 @@ in_case0 && /END SELECT/ { in_case0=0 }
 {
     # 2. Removing y-coordinate to the ssh expression
     if (in_sub2 && !skip_ssh && !done_ssh && /pssh\(:,:\).*grav/) {
-        sub(/pssh\(:,:\).*grav/, "pssh(:,:) = - zf0 * rn_uzonal *gphit(:,:)* 1e3_wp /grav ")
+        sub(/pssh\(:,:\).*grav/, "pssh(:,:) = - zf0 * rn_uzonal *gphit(:,:)* 1.e3_wp /grav ")
         print
         done_ssh=1
         next

@@ -6,13 +6,19 @@ if [ $# -lt 1 ]; then
 fi
 
 DIR="$1"
+
+
 SRC="$DIR/namelist_cfg"
+FILE_DEF="$DIR/file_def_nemo-oce.xml"
 
 if [ ! -f "$SRC" ]; then
     echo "Error : cannot find file : $SRC"
     exit 1
 fi
 
+sed -i 's/output_freq=".*"/output_freq="2h"/' "$FILE_DEF"
+
+echo output_freq changed to 2 hours
 
 sed -i.bak \
 -e 's/ln_traadv_ubs.*=.*\!/ln_traadv_ubs        =       .true.  !/' \
@@ -33,7 +39,8 @@ diff "$SRC" "$SRC.bak"
 sh /"$DIR"/run_nemo.sh && echo Run CANAL_saltblock_ubs_all_grid.nc completed
 
 
+sed -i 's/output_freq=".*"/output_freq="1d"/' "$FILE_DEF"
 
-
+echo output_freq changed back to 1 day
 
 

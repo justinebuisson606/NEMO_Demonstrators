@@ -7,6 +7,11 @@ fi
 
 DIR="$1"
 SRC="$DIR/namelist_cfg"
+FILE_DEF="$DIR/file_def_nemo-oce.xml"
+
+sed -i 's/output_freq=".*"/output_freq="2h"/' "$FILE_DEF"
+
+echo output_freq changed to 2 hour 
 
 if [ ! -f "$SRC" ]; then
     echo "Erreur : fichier introuvable : $SRC"
@@ -34,6 +39,9 @@ diff "$SRC" "$SRC.bak"
 sh /"$DIR"/run_nemo.sh && echo Run CANAL_saltblock_fct2_all_grid.nc completed
 
 
+sed -i 's/output_freq=".*"/output_freq="1d"/' "$FILE_DEF"
+
+echo output_freq changed back to 1 day
 
 
 

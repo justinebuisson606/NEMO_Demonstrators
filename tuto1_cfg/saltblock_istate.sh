@@ -20,9 +20,10 @@ if [ ! -f "$SRC" ]; then
 fi
 
 # V??rifie si chaque modification a d??j?? ??t?? appliqu??e
-grep -q "zjetx, zjety, zbeta, zsx, zsy" "$SRC" && SKIP_DECL=1 || SKIP_DECL=0
+grep -q "zjetx, zjety, zbeta,.*zsx, zsy" "$SRC" && SKIP_DECL=1 || 
+SKIP_DECL=0
 grep -q "zsx = ABS(rn_salszx)/2._wp" "$SRC" && SKIP_ZJETY=1 || SKIP_ZJETY=0
-grep -q "! *WHERE( ABS(gphit) <= zjety )" "$SRC" && SKIP_WHERE=1 || SKIP_WHERE=0
+grep -q "WHERE.*ABS.*gphit.*zsy.*AND.*ABS.*glamt.*zsx" "$SRC" && SKIP_WHERE=1 || SKIP_WHERE=0
 
 
 awk -v skip_decl="$SKIP_DECL" -v skip_zjety="$SKIP_ZJETY" -v skip_where="$SKIP_WHERE" '
@@ -60,6 +61,7 @@ in_case1 && /END SELECT/ { in_case1=0 }
         print "               pts(:,:,jk,jp_sal) = 35._wp"
         print "            ELSEWHERE"
         print "               pts(:,:,jk,jp_sal) = 30._wp"
+	print "		   END WHERE"
 	done_where=1
 	next
     }
@@ -80,7 +82,7 @@ TMP="$DIR_PARENT/MY_SRC/usrdef_nam.F90.tmp"
 
 
 # V??rifie si chaque modification a d??j?? ??t?? appliqu??e
-grep -q "rn_vtxmax, rn_uzonal, rn_ujetszx, rn_ujetszy, rn_salszx, rn_salszy" "$SRC" && SKIP_DECL=1 || SKIP_DECL=0
+grep -q "rn_vtxmax, rn_uzonal, rn_ujetszx, rn_ujetszy,.*rn_salszx, rn_salszy" "$SRC" && SKIP_DECL=1 || SKIP_DECL=0
 grep -q "width of the square of salt" "$SRC" && SKIP_SALSZ=1 || SKIP_SALSZ=0
 
 awk -v skip_decl="$SKIP_DECL" -v skip_salsz="$SKIP_SALSZ" '
@@ -115,9 +117,9 @@ echo "Changes applied. Saving : $SRC.bak"
 DIR_NEMO="${DIR%/tests*}"
 cd "$DIR_NEMO"
 
-FILE = "${DIR%%tests/*}"
-TEST = "${FILE%/*}"
+TEST_CASE=$(basename "$(dirname "$DIR")")
+echo "Name of the CANAL test compiled $TEST_CASE"
 
-./makenemo -r CANAL -n "$TEST"
+./makenemo -r CANAL -n $TEST_CASE 
 
 cd "$DIR"

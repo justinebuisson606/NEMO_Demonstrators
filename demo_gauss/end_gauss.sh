@@ -18,7 +18,7 @@ fi
 
 
 awk '
-/pts\(:,:,jk,jp_sal\).*EXP.*rn_lambda/ {next}
+/pts\(:,:,jk,jp_sal\).*SIN.*w0/ {next}
 {print}
 ' \
 "$SRC" > "$TMP"
@@ -32,10 +32,14 @@ echo "Changes applied. Saving : $SRC.bak"
 
 DIR_NEMO="${DIR%/tests*}"
 cd "$DIR_NEMO"
- 
+
+TEST_CASE=$(basename "$(dirname "$DIR")")
+
+echo "Name of the CANAL test case compiled $TEST_CASE"
+
 echo "Compiling"
 
-./makenemo -r CANAL -n EXP42
+./makenemo -r CANAL -n $TEST_CASE
 
 
 

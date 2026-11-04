@@ -39,7 +39,7 @@ SED_EXPR=(
 -e 's/ln_Jperio.*=.*\!/ln_Jperio	=	.false.   !/'
 -e "s/cn_exp.*=.*'.*'/cn_exp	=	'CANAL_saltblock'/"
 -e 's/nn_it000.*=.*\!/nn_it000	=	0   !/'
--e 's/nn_itend.*=.*\!/nn_itend	=	7680   !/'
+-e 's/nn_itend.*=.*\!/nn_itend	=	1920   !/'
 -e 's/nn_istate.*=.*\!/nn_istate      =       0   !/'
 -e 's/rn_Dt.*=.*\!/rn_Dt	= 	900.   !/'
 -e 's/rn_atfp.*=.*\!/rn_atfp    =       0.   !/'
@@ -51,7 +51,7 @@ SED_EXPR=(
 )
 
 # On ajoute l'insertion seulement si elle n'est pas d??j?? pr??sente
-if ! grep -q "rn_salzx" "$SRC"; then
+if ! grep -q "rn_salszx" "$SRC"; then
     SED_EXPR+=(-e '/rn_ujetszy/a\
    rn_salszx = 500.        ! width of the saltblock [km]\
    rn_salszy = 500.        ! height of the salt block [km]')

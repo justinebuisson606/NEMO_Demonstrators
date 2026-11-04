@@ -6,6 +6,13 @@ if [ $# -lt 1 ]; then
 fi
 
 DIR="$1"
+
+FILE_DEF="$DIR/file_def_nemo-oce.xml"
+
+sed -i 's/output_freq=".*"/output_freq="2h"/' "$FILE_DEF"
+
+echo output_freq changed to 2 hour
+
 SRC="/$DIR/namelist_cfg"
 
 if [ ! -f "$SRC" ]; then
@@ -33,3 +40,8 @@ sed -i.bak \
 diff "$SRC" "$SRC.bak"
 
 sh /"$DIR"/run_nemo.sh && echo Run CANAL_saltblock_cen2_all_grid.nc completed
+
+
+sed -i 's/output_freq=".*"/output_freq="1d"/' "$FILE_DEF"
+
+echo output_freq changed back to 1 day
