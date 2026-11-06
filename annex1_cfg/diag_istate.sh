@@ -89,7 +89,10 @@ cp "$SRC" "$SRC.bak"; mv "$TMP" "$SRC" && echo usrdef_istate.F90 modified
 DIR_NEMO="${DIR%/tests*}"
 cd "$DIR_NEMO"
 
-./makenemo -r CANAL -n EXP42
+TEST_CASE=$(basename "$(dirname "$DIR")")
+echo "Name of the CANAL test compiled $TEST_CASE"
+
+./makenemo -r CANAL -n $TEST_CASE
 
 cd "$DIR"
 

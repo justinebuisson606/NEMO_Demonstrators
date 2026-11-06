@@ -127,14 +127,10 @@ DIR_NEMO="${DIR%/tests*}"
 cd "$DIR_NEMO"|| { echo "Erreur : impossible d'aller dans $DIR_NEMO"; exit 1; }
 echo "Compilation lanc??e depuis : $(pwd)"
 
-FILE="${DIR#*tests/}"
-TEST="${FILE%%/*}"
+TEST_CASE=$(basename "$(dirname "$DIR")")
+echo "Name of the CANAL test compiled $TEST_CASE"
 
-
-echo "Name of the executive : $TEST"
-
-
-./makenemo -r CANAL -n "$TEST"
+./makenemo -r CANAL -n "$TEST_CASE"
 
 
 cd "$DIR"|| { echo "Erreur : impossible de revenir dans $DIR"; exit 1; }
