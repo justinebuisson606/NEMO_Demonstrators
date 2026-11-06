@@ -1,4 +1,4 @@
-# Phase speed and dampening effect : theory
+# Phase speed and damping effect : theory
 
 ## Problem and strategy
  
@@ -24,9 +24,13 @@ A numerical scheme changes the relation $\omega(k)$; this is what we compute bel
 
 The spatial discretisation of the transport equation is as follows :
 
+
 $$
 \partial_x T \approx \frac{T_{j+1} - T_{j-1}}{2\Delta x} = \frac{e^{i\theta} - e^{-i\theta }}{2\Delta x} T_j= \frac{2i \sin\theta}{2\Delta x} T_j
 $$
+
+With $\theta = k\Delta x$
+
 
 The time continuous part of the transport equation becomes :
 
@@ -59,7 +63,11 @@ The spatial discretisation of the transport equation is as follows :
 
 $$
 \partial_x T \approx \frac{4}{3} \frac{T_{j+1} - T_{j-1}}{2\Delta x} - \frac{1}{6} \frac{T_{j+2} - T_{j-2}}{2\Delta x}
-= (\frac{4}{3}\frac{e^{i\theta} - e^{-i\theta }}{2\Delta x} -\frac{1}{6}\frac{e^{i2\theta} - e^{-i2\theta }}{\Delta x} ) T_j\
+$$
+$$
+= (\frac{4}{3}\frac{e^{i\theta} - e^{-i\theta }}{2\Delta x} -\frac{1}{6}\frac{e^{i2\theta} - e^{-i2\theta }}{2\Delta x} ) T_j\
+$$
+$$
 = (\frac{4}{3} \frac{i \sin\theta}{\Delta x} -\frac{1}{6}\frac{i \sin2\theta}{\Delta x}) T_j
 $$
 
@@ -67,7 +75,7 @@ The time continuous part of the transport equation becomes :
 
 $\partial_t T_j = -i\omega T_j$
 
-Which gives us     $c_p = \frac{\omega}{k} = c_0 (\frac{4}{3} \sin\theta/ - \frac{1}{6} \sin2\theta )/\theta$
+Which gives us     $c_p = \frac{\omega}{k} = c_0 (\frac{4}{3} \sin\theta - \frac{1}{6} \sin2\theta )/\theta$
 
 **Small $\theta$ expansion** 
 
@@ -79,7 +87,7 @@ instead of order 2 for CEN2.
 For $c_0>0$, the discrete spatial derivative uses one point downstream and two upstream :
 
 $$
-\partial_t T_j \approx
+\partial_x T_j \approx
 \frac{T_{j-2} - 6T_{j-1} + 3T_j + 2T_{j+1}}{6\Delta x}.
 $$
 
@@ -87,11 +95,11 @@ The time continuous part of the transport equation becomes :
 
 $\partial_t T = -i\omega T_j$, 
 
-Therefore, $\omega = \omega_r + I\omega_i$ with 
+Therefore, $\omega = \omega_r + i\omega_i$ with 
 
-$\omega_r = c_0 (\frac{4}{3} \sin\theta/ - \frac{1}{6} \sin2\theta )/\Delta x$
+$\omega_r = c_0 (\frac{4}{3} \sin\theta - \frac{1}{6} \sin2\theta )/\Delta x$
 
-Which gives us     $c_p = \frac{\omega_r}{k} = c_0 (\frac{4}{3} \sin\theta/ - \frac{1}{6} \sin2\theta )/\theta$
+Which gives us     $c_p = \frac{\omega_r}{k} = c_0 (\frac{4}{3} \sin\theta - \frac{1}{6} \sin2\theta )/\theta$
 
 And     $\omega_i = -\frac{c_0}{\Delta x}(1-\cos\theta)^2/3$
 
@@ -104,11 +112,11 @@ UBS is CEN4 plus a fourth-order (bi-Laplacian-like) diffusion.
 
 ## Summary
 
-| Scheme | $c_p/c_0$ | $D$ |
+| Scheme | Phase speed : $c_p/c_0$ | Damping : $\omega_i\Delta x/c_0$ |
 |---|---|---|
 | Exact | 1 | 0 |
 | CEN2 | $\sin\theta/\theta$ | 0 |
-| CEN4 | $(\tfrac43\sin\theta-\tfrac16\sin2\theta/)\theta$ | 0 |
+| CEN4 | $(\tfrac43\sin\theta-\tfrac16\sin2\theta)/\theta$ | 0 |
 | UBS | Same as CEN4 |  $- (1-\cos\theta)^2/3$ |
 
 
