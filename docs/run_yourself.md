@@ -44,8 +44,3 @@ These open the repository in a Jupyter environment. For Binder to work, the
 repository needs an `environment.yml` or `requirements.txt` (a template is provided
 in `binder/`). Cells that call the simulation scripts will fail there.
 
-## 3. Optional: ship the simulation output
-
-To make the analysis cells runnable online, commit the (small) NetCDF output files
-used by the figures, or host them (Zenodo, for example) and download them at the
-start of the notebook.
